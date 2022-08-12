@@ -1,15 +1,12 @@
 // подключаю express
 const express = require("express");
-// подключаю контроллеры
-const controller = require("../controllers/auth");
-
-// создаю локальный роутер
+const controller = require("../controllers/analytics");
 const router = express.Router();
 
 // localhost:5000/api/auth/login
-router.post("/login", controller.login);
+router.get("/overview", controller.overview);
 // localhost:5000/api/auth/register
-router.post("/register", controller.register);
+router.get("/analytics", controller.analytics);
 
 // экспортирую роутер наружу
 module.exports = router;
