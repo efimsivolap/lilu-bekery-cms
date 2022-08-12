@@ -1,0 +1,18 @@
+{
+  "name": "cms-lilu-bakery",
+  "version": "1.0.0",
+  "description": "cms system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "angular"
+  ],
+  "author": "efim sivolap",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
