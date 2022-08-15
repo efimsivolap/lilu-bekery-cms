@@ -11,16 +11,16 @@
     "express",
     "angular"
   ],
-  "author": "Sivolap Efim",
+  "author": "Vladilen Minin",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
-    "cors": "^2.8.5",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "mongoose": "^6.5.2",
-    "morgan": "^1.10.0"
+    "mongoose": "^5.0.17",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.17.3"
   }
 }

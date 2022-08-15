@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
   mongoURI:
-    "mongodb://EfimSivolap:<minimalist2012>@cluster0.v2vqo20.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://Efim:123456780@cluster0.1qgi1eh.mongodb.net/?retryWrites=true&w=majority",
 };
