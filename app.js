@@ -18,6 +18,8 @@ mongoose
   .then(() => console.log("MongoDB connected."))
   .catch((error) => console.log(error));
 
+app.use(passport.initialize());
+
 app.use(require("morgan")("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
