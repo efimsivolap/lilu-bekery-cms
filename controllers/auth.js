@@ -1,10 +1,27 @@
+const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken')
+const User = require("../models/User");
+
 module.exports.login = function (req, res) {
-  res.status(200).json({
-    login: {
-      email: req.body.email,
-      password: req.body.password,
-    },
-  });
+  const candidate = await User.findOne({email: req.body.email})
+
+  if (candidate) {
+    // проверка пароля, пользователь существует
+    const  passwordResult = bcrypt.compareSync(req.body.password, candidate.password)
+    if (passwordResult) {
+      // генерация токенаб пароли совпали
+      const token = ''
+      res.status(200).json({
+
+      })
+    } else { 
+      // пароли не совпали
+    }
+  } else {
+    // пользователя нет, ошибка
+    res.status(404).json({message: "пользователь с таким именем не найден"})
+  }
+
 };
 
 module.exports.register = async function (req, res) {
@@ -19,5 +36,18 @@ module.exports.register = async function (req, res) {
     });
   } else {
     // создаём нового пользователя
+    const salt = bcrypt.genSaltSync(10);
+    const password = req.body.password;
+
+    const user = new User({
+      email: req.body.email,
+      password: bcrypt.hashSync(password, salt),
+    });
+    try {
+      await user.save();
+      res.status(201).json(user);
+    } catch (error) {
+      // обработать ошибку
+    }
   }
 };
