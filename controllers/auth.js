@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken')
 const User = require("../models/User");
+const keys = require('../config/keys')
 
 module.exports.login = function (req, res) {
   const candidate = await User.findOne({email: req.body.email})
@@ -10,7 +11,10 @@ module.exports.login = function (req, res) {
     const  passwordResult = bcrypt.compareSync(req.body.password, candidate.password)
     if (passwordResult) {
       // генерация токенаб пароли совпали
-      const token = ''
+      const token = jwt.sign({
+        email:candidate.email,
+        userId: candidate._id
+      }, keys.jwt, {expiresIn:60 * 60})
       res.status(200).json({
 
       })
